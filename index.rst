@@ -11,8 +11,7 @@ Edit these files to interactively learn Python.
 .. toctree::
    :maxdepth: 2
 
-   tutorial/Python_tutorial_1.py
-   tutorial/Python_tutorial_2.py
+   tutorial/Python_tutorial.py
 
 MAV control
 -----------
