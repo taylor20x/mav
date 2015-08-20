@@ -2,6 +2,9 @@
 # drone_install.sh - Set up Ubuntu for the AR Drone
 # *************************************************
 #
+# Echo all commands.
+set -o verbose
+#
 # Install ROS_ Indigo
 # ===================
 # .. _ROS: http://www.ros.org
@@ -35,15 +38,15 @@ source devel/setup.bash
 
 echo $ROS_PACKAGE_PATH
 
-# Install the `ARDrone libraries`_
-# ================================
-# .. _ARDrone libraries: http://ardrone-autonomy.readthedocs.org/en/latest/installation.html
+# Install the `AR Drone libraries`_
+# =================================
+# .. _AR Drone libraries: http://ardrone-autonomy.readthedocs.org/en/latest/installation.html
 sudo apt-get install -y ros-indigo-ardrone-autonomy
 
 # Install the Drone demo code
 # ===========================
 cd ~/catkin_ws/src
-hg clone https://bitbucket.org/bjones/iamgirl
+git clone https://github.com/bjones1/mav.git
 cd ~/catkin_ws/
 catkin_make
 source devel/setup.bash
