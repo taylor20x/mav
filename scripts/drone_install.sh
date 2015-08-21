@@ -20,7 +20,21 @@ sudo apt-get install -y ros-indigo-desktop-full
 sudo rosdep init
 rosdep update
 echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
-source ~/.bashrc
+# In the `ROS installation instructions`_, this was ``source ~/.bashrc``. However, that doesn't work when run from a script, as the output from running this script shows::
+#
+#    source ~/.bashrc
+#    # ~/.bashrc: executed by bash(1) for non-login shells.
+#    # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+#    # for examples
+#
+#    # If not running interactively, don't do anything
+#    case $- in
+#        *i*) ;;
+#          *) return;;
+#    esac
+#
+# So, the default behavior of ``~/.bashrc`` is to not run from a script! Hence the change above.
+source /opt/ros/indigo/setup.bash
 sudo apt-get install -y python-rosinstall
 #
 # Set up the ROS environment
