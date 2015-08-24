@@ -87,11 +87,75 @@ print(a[1:])
 print(a[-4:])
 print("hello "
       "world.")
-"""
 
 # Lists
 # =====
+# There are lots of `list operations <https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange>`_.
 l = ['1', 2, 3.5, True]
 print(l)
 
+# `Tuples <https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences>`_ are unmodifiable lists.
+t = (1, '2', True)
+# Use an extra comma to create a 1-element tuple.
+t1 = (1, )
+# Use ``()`` to create an empty tuple.
+t2 = ()
+
+# Files
+# =====
+# Using a `context manager <https://docs.python.org/2/reference/compound_stmts.html#with>`_ here guarantees that the file will be closed. We don't handle Unicode with an simple open command.
+with open('../index.rst') as in_file:
+    with open('modified_index.rst', 'w') as out_file:
+        for line in in_file:
+            out_file.write('>>' + line)
+
+# Sets
+# ====
+# `Sets <https://docs.python.org/2/library/stdtypes.html#set>`_
+s = set('hello')
+print(s)
+
+# Dictionary
+# ==========
+# See https://docs.python.org/2/library/stdtypes.html#mapping-types-dict.
+d = {'one' : 1, 'two': 2}
+print(d['one'])
+
+# Functions
+# =========
+def foo():
+    print('hello')
+
+print(foo())
+
+def bar(a, b, c):
+    return b, c, a
+
+#print(bar('1', 2, 3.5))
+# Must have the correct number of arguments.
+#print(bar(1, 2))
+#print(bar(1, 2, 3, 4))
+
+# Pass arg using keyword.
+print(bar(None, c=1, b='2'))
+"""
+
+def sum(*args):
+    total = 0
+    for arg in args:
+        total += arg
+    return total
+
+def summer(num_sum, *args):
+    return sum(*args[:num_sum])
+
+#print(sum(3, 4, 5))
+#print(summer(2, 3, 4, 5))
+
+# Keyword args
+def summer1(*args, **kwargs):
+    num_sum = kwargs.get('num_sum', len(args))
+    return sum(*args[:num_sum])
+
+print(summer1(3, 4, 5, num_sum=2))
 
