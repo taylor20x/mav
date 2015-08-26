@@ -13,6 +13,15 @@ Edit these files to interactively learn Python.
 
    tutorial/Python_tutorial.py
 
+Homework
+--------
+These serve as the starting point for homework assignments.
+
+.. toctree::
+   :maxdepth: 2
+
+   homework/hw1.py
+
 MAV control
 -----------
 These are files that you'll edit to make your MAV do neat things.
