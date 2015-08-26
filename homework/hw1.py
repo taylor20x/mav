@@ -12,11 +12,14 @@
 def pick_val(
   # The sequence to pick from.
   seq,
-  # The element to select. Defaults to 4th from the end. If the sequence is shorter than 4 elements, select the third, second, first, or raise an IndexError exception if the sequence is empty.
+  # The element to select. Defaults to 4th from the end. 
+  #
+  # * If the sequence is shorter than 4 elements, select the third, second, first, or raise an IndexError exception if the sequence is empty.
+  # * If the element is positive, index from the beginning of the list: element == -2 returns seq[2]. Again, if the list is less than element in length, return an earlier value.
   element):
 
     # Dummy code -- replace this with your code.
-    pass
+    raise IndexError
 
 # Tests
 # =====
@@ -42,6 +45,18 @@ class TestPickVal(object):
             assert False
         except IndexError:
             pass
+    
+    # Test passing a non-integral type for the index.
+    def test_5(self):
+        try:
+            pick_val(range(10), 1.5)
+            assert False
+        except IndexError:
+            pass
+        
+    # Test picking values outside the range.
+    def test_6(self):
+        assert pick_val(range(10), 11) == 0
 
 # Test driver code
 # ================
@@ -51,6 +66,7 @@ def run_tests():
     tpv.test_2()
     tpv.test_3()
     tpv.test_4()
+    tpv.test_5()
     print('All tests passed.')
 
 if __name__ == '__main__':
