@@ -22,10 +22,10 @@ def pick_val(
   # * If the index is negative, select from the beginning of the list:
   #   index == -2 returns seq[2]. Again, if the list is less than index in
   #   length, return an earlier value.
-  index):
+  index=4):
 
     # Dummy code -- replace this with your code.
-    raise TypeError
+    pass
 
 # Tests
 # =====
@@ -71,8 +71,8 @@ class TestPickVal(object):
         assert pick_val('hello', 1) == 'o'
 
         assert pick_val(tuple(range(10))) == 6
-        assert pick_val(tuple(range(10), 3)) == 7
-        assert pick_val(tuple(range(10), 11)) == 0
+        assert pick_val(tuple(range(10)), 3) == 7
+        assert pick_val(tuple(range(10)), 11) == 0
 
 # Test driver code
 # ================
