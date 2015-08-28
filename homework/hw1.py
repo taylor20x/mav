@@ -13,16 +13,16 @@ def pick_val(
   # The sequence to pick from.
   seq,
   #
-  # The index of element to select, measured from the end of the list. That is,
-  # 1 referes to the last item in seq, 2 to the second item from the end, etc.
+  # The index of the element to select, measured from the end of the list. That is,
+  # 1 refers to the last item in seq, 2 to the second item from the end, etc.
   # This parameter defaults to the 4th from the end.
   #
   # * If the sequence is shorter than 4 elements, select the third, second,
   #   first, or raise an IndexError exception if the sequence is empty.
-  # * If the index is positive, select from the beginning of the list:
+  # * If the index is negative, select from the beginning of the list:
   #   index == -2 returns seq[2]. Again, if the list is less than index in
   #   length, return an earlier value.
-  index=4):
+  index):
 
     # Dummy code -- replace this with your code.
     raise TypeError
