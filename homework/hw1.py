@@ -3,7 +3,7 @@
 # ********************************
 # hw1.py -- Homework 1 assignment.
 # ********************************
-# This file must be named hw1.py; none of the function names below are allowed
+# This file must be named ``hw1.py``; none of the function names below are allowed
 # to change.
 #
 # Code skeleton
