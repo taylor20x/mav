@@ -23,9 +23,14 @@ def pick_val(
   #   index == -2 returns seq[2]. Again, if the list is less than index in
   #   length, return an earlier value.
   index=4):
-
-    # Dummy code -- replace this with your code.
-    pass
+    seqlength = len(seq)
+    myindex = index
+    if abs(myindex) > seqlength:
+        myindex = 0 - seqlength
+    else:
+        myindex = 0 - index
+    value = seq[myindex]
+    return value
 
 # Tests
 # =====
