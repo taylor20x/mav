@@ -13,9 +13,9 @@ def pick_val(
   # The sequence to pick from.
   seq,
   #
-  # The index of the element to select, measured from the end of the list. That is,
-  # 1 refers to the last item in seq, 2 to the second item from the end, etc.
-  # This parameter defaults to the 4th from the end.
+  # The index of the element to select, measured from the end of the list. That
+  # is, 1 refers to the last item in seq, 2 to the second item from the end,
+  # etc. This parameter defaults to the 4th from the end.
   #
   # * If the sequence is shorter than 4 elements, select the third, second,
   #   first, or raise an IndexError exception if the sequence is empty.
