@@ -139,7 +139,7 @@ def bar(a, b, c):
 # Pass arg using keyword.
 print(bar(None, c=1, b='2'))
 """
-
+"""
 def sum(*args):
     total = 0
     for arg in args:
@@ -158,4 +158,9 @@ def summer1(*args, **kwargs):
     return sum(*args[:num_sum])
 
 print(summer1(3, 4, 5, num_sum=2))
-
+"""
+# Testing for data types
+#=======================
+list = [50, 'fifty']
+if isinstance(list[1], int) == False:
+	print("wrong data type") 
