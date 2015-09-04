@@ -12,6 +12,7 @@ Edit these files to interactively learn Python.
    :maxdepth: 2
 
    tutorial/Python_tutorial.py
+   tutorial/threading_demo.py
 
 Homework
 --------
