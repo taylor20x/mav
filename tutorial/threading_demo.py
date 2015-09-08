@@ -7,6 +7,8 @@
 #
 # Library imports
 # ===============
+# Read the `threading docs <https://docs.python.org/2/library/threading.html#thread-objects>`_
+# carefully to understand this program's operation.
 from threading import Thread, Lock
 from time import sleep
 #
@@ -39,12 +41,18 @@ class CounterThread(Thread):
       # Any extra args.
       **kwargs):
 
-        # Thread.__init__ `must <https://docs.python.org/2/library/threading.html#threading.Thread>`_ be called. To invoke a parent, common syntax is ``Thread.__init__(self, kwargs)``. This has several problems, however; use the (awkward) `super <https://docs.python.org/2/library/functions.html#super>`_ syntax instead. Note that this syntax is much improved in Python 3 -- simply use `super().__init__(kwargs) <https://docs.python.org/3/library/functions.html#super>`_.
+        # ``Thread.__init__`` `must <https://docs.python.org/2/library/threading.html#threading.Thread>`_
+        # be called. To invoke a parent, common syntax is
+        # ``Thread.__init__(self, kwargs)``. This has several problems, however;
+        # use the (awkward) `super <https://docs.python.org/2/library/functions.html#super>`_
+        # syntax below instead. Note that this syntax is much improved in
+        # Python 3 -- simply use `super().__init__(kwargs) <https://docs.python.org/3/library/functions.html#super>`_.
         super(CounterThread, self).__init__(**kwargs)
         self._wait_time_sec = wait_time_sec
         self._number_factory = number_factory
 
-    # `This method <https://docs.python.org/2/library/threading.html#threading.Thread.run>`_ runs in a separate thread.
+    # `This method <https://docs.python.org/2/library/threading.html#threading.Thread.run>`_
+    # runs in a separate thread.
     def run(self):
         for index in range(10):
             sleep(self._wait_time_sec)
@@ -55,7 +63,8 @@ class CounterThread(Thread):
 def main():
     # Create two threads.
     #
-    # Use a `lock <https://docs.python.org/2/library/threading.html#lock-objects>`_ to enforce exclusive access in the NumberFactory.
+    # Use a `lock <https://docs.python.org/2/library/threading.html#lock-objects>`_
+    # to enforce exclusive access in the NumberFactory.
     lock = Lock()
     nf = NumberFactory(lock)
     ct1 = CounterThread(1.0, nf, name='Slow')
