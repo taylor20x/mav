@@ -82,6 +82,10 @@ class TestPickVal(object):
         assert pick_val(tuple(range(10)), 3) == 7
         assert pick_val(tuple(range(10)), 11) == 0
 
+    # Test picking blank value 
+    def test_8(self):
+        assert pick_val(' ') == ' '
+
 # Test driver code
 # ================
 def run_tests():
@@ -93,6 +97,7 @@ def run_tests():
     tpv.test_5()
     tpv.test_6()
     tpv.test_7()
+    tpv.test_8()
     print('All tests passed.')
 
 if __name__ == '__main__':
